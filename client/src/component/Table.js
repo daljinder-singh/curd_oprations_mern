@@ -93,14 +93,10 @@ const Table = () => {
   };
  
   const getDatafromDb = async () => {
-    try {
-      const { status, data } = await axios.get(
+      const { data } = await axios.get(
         `${process.env.REACT_APP_URL}/api/get`
       );
-      if (status === 200) setTableData(data);
-    } catch (error) {
-      alert('error');
-    }
+      setTableData(data);
   };
   useEffect(() => {
     getDatafromDb();
